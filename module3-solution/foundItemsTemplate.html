@@ -1,0 +1,25 @@
+<table ng-if="directiveCtrl.foundItems.length > 0" class="result-table table-striped">
+  <thead>
+    <tr>
+      <th>Short name</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in directiveCtrl.foundItems">
+      <td>{{item.short_name}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>
+        <button ng-click="directiveCtrl.onRemove({index: $index})" class="btn btn-sm btn-danger">
+          Don't want this one!
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div ng-if="directiveCtrl.errorMessage.length > 0" class="alert alert-danger">
+  <strong>Error!</strong> {{directiveCtrl.errorMessage}}
+</div>
